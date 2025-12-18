@@ -72,14 +72,23 @@ public:
         for (int i = 0; i < TABLE_SIZE; i++) {
             int pos = (index + i * step) % TABLE_SIZE;
 
-            if (!table[pos].occupied || table[pos].deleted) {
+            
+            if (table[pos].occupied && table[pos].key == playerID) {
+                table[pos].value = name;
+                return;
+            }
+
+            
+            if (!table[pos].occupied) {
                 table[pos].key = playerID;
                 table[pos].value = name;
                 table[pos].occupied = true;
-                table[pos].deleted = false;
                 return;
             }
         }
+
+       
+        cout << "Table is Full." << endl;
     }
 
     string search(int playerID) override {
