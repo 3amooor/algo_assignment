@@ -544,7 +544,7 @@ int InventorySystem::maximizeCarryValue(int capacity, vector<pair<int, int>>& it
 
     // DP array: dp[w] = maximum value achievable with capacity w
     // Using 1D array for space optimization
-    vector<int> dp(capacity + 1, 0);
+    vector<long long> dp(capacity + 1, 0);
 
     // For each item
     for (int i = 0; i < n; i++) {

@@ -124,7 +124,7 @@ void test_Hard_PartB() {
     vector<pair<int,int>> items;
     for(int i=1;i<=20;i++) items.push_back({i,i*10});
     runner.runTest("Knapsack: Many items, large capacity",
-        InventorySystem::maximizeCarryValue(50, items) == 460);
+        InventorySystem::maximizeCarryValue(50, items) == 500);
 
     // Chat Decoder
     runner.runTest("ChatDecoder: Complex string 'uunnuu'",
