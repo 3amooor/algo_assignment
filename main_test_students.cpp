@@ -162,13 +162,13 @@ void test_Hard_PartC() {
     // SumMinDistancesBinary
     edges = {{0,1,1},{1,2,2},{2,3,3},{0,3,10}};
     runner.runTest("BinarySum: Medium graph",
-        WorldNavigator::sumMinDistancesBinary(4, edges) == "1111"); // sum=15
+        WorldNavigator::sumMinDistancesBinary(4, edges) == "10100"); // sum=15
 
     edges.clear();
     int n = 10;
     for(int i=0;i<n-1;i++) edges.push_back({i,i+1,1});
     runner.runTest("BinarySum: Linear 10 nodes",
-        WorldNavigator::sumMinDistancesBinary(10, edges) == "101101"); // sum=45 -> "101101"
+        WorldNavigator::sumMinDistancesBinary(10, edges) == "10100101"); // sum=45 -> "101101"
 }
 
 // ==========================================
@@ -181,14 +181,14 @@ void test_Hard_PartD() {
         [&]() {
             vector<char> tasks={'A','A','A','B','B','C'};
             int n=3;
-            return ServerKernel::minIntervals(tasks,n)==8;
+            return ServerKernel::minIntervals(tasks,n)==9;
         }());
 
     runner.runTest("Scheduler: Single Task Repeats",
         [&]() {
             vector<char> tasks={'A','A','A','A'};
             int n=5;
-            return ServerKernel::minIntervals(tasks,n)==21;
+            return ServerKernel::minIntervals(tasks,n)==19;
         }());
 
     runner.runTest("Scheduler: Multiple Max Frequency Tasks",
