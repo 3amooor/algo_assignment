@@ -199,18 +199,25 @@ bool WorldNavigator::pathExists(int n, vector<vector<int>>& edges, int source, i
         adj[e[1]].push_back(e[0]); 
     }
 
+    // All nodes start as WHITE 
     vector<bool> visited(n, false);
     queue<int> q;
+
+    // Source becomes GRAY: discovered and added to queue
     q.push(source);
     visited[source] = true;
 
     while (!q.empty()) {
+
+        // Take a GRAY node from the queue
         int u = q.front();
         q.pop();
 
         for (int v : adj[u]) {
             if (!visited[v]) {
                 if (v == dest) return true;
+
+                // Neighbor becomes GRAY
                 visited[v] = true;
                 q.push(v);
             }
